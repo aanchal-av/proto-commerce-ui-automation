@@ -1,0 +1,11 @@
+{
+  "name": "proto-commerce-ui-automation",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:aanchal-av/proto-commerce-ui-automation.git",
+  "author": "Aanchal <aanchalverma.av@outlook.com>",
+  "license": "MIT",
+  "dependencies": {
+    "cypress": "^14.0.3"
+  }
+}
