@@ -22,7 +22,7 @@ describe('Login page validation', () => {
       cy.wrap($el).contains('button','Add').click()
 
     })
-    cy.contains('Checkout').click()
+    cy.contains('a','Checkout').click()
 
 
   })
