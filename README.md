@@ -29,7 +29,7 @@ report with all tests passed : file:///C:/Users/aanch/code/proto-commerce/proto-
 
 11. To integrate the cloud run with slack, need to perform the following:
      1. Enable the slack in cypress cloud
-     2. Add the worspace name of the slack
+     2. Add the workspace name of the slack
      3. Select the channel name from the dropdown
     and the report is generated as follows:
 
