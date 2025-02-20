@@ -10,7 +10,7 @@
   },
   
    "scripts": {
-   "test": "yarn cypress open",
+   "test": "yarn cypress run",
    "headTest": "yarn cypress run --headed",
    "chromeTest":"yarn cypress run --browser chrome",
    "recordDashboardTestCloud": "yarn cypress run --record --key 759fe6b7-8fdc-4c34-956e-41bf26851bcb"
