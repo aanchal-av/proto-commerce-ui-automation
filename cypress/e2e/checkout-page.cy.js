@@ -7,14 +7,18 @@ describe('placing order', () => {
   const loginpage=new LoginPage()
   const checkoutpage= new CheckoutPage()
 
+
+  
+
   beforeEach(function(){
     // runs once before all test in this block
     cy.fixture('users.json').as('data')
+    loginpage.goTo(Cypress.env('url'))
   })
+
 
 it('Add product to cart', function() {
     const productName='iphone X'
-    loginpage.goTo('https://rahulshettyacademy.com/loginpagePractise/')
     loginpage.login(this.data.username,this.data.password)
     checkoutpage.productCard({timeout:5000})
     checkoutpage.clickAddToCart(productName)
@@ -25,7 +29,6 @@ it('Add product to cart', function() {
 
 it('place an order',function(){
     const productName='iphone X'
-    loginpage.goTo('https://rahulshettyacademy.com/loginpagePractise/')
     loginpage.login(this.data.username,this.data.password)
     checkoutpage.clickAddToCart(productName)
       cy.get('app-card').eq(1).click()
