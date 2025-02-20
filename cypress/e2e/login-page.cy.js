@@ -1,12 +1,20 @@
-describe('Login page validation', () => {
+import LoginPage from '../support/pageObjects/LoginPage';
 
-  it('user is able to login', () => {
-    cy.visit('https://rahulshettyacademy.com/loginpagePractise/')
-    cy.get('#username').type('rahulshettyacademy')
-    cy.get('#password').type('learning')
-    cy.get('#terms').check()
-    cy.get('#signInBtn').click()
-    cy.get('.my-4').should('contain','Shop Name')
+
+describe('Login page validation', () => {
+  beforeEach(function(){
+    // runs once before all test in this block
+    cy.fixture('users').then((data) => {
+      this.data = data;
+    });
+  })
+
+  it('user is able to login', function(){
+    const loginpage = new LoginPage()
+    const pageTitle= 'Shop Name'
+    loginpage.goTo('https://rahulshettyacademy.com/loginpagePractise/')
+    loginpage.login(this.data.username,this.data.password)
+    loginpage.productPageTitle(pageTitle)
   })
 
   
