@@ -1,6 +1,5 @@
 import LoginPage from '../support/pageObjects/LoginPage';
 
-
 describe('Login page validation', () => {
   const loginpage = new LoginPage()
   beforeEach(function(){
@@ -13,7 +12,7 @@ describe('Login page validation', () => {
 
   })
 
-  it('user is able to login', function(){
+  it('user is able to login @smoke', function(){
     const pageTitle= 'Shop Name'
     loginpage.login(this.data.username,this.data.password)
     loginpage.productPageTitle(pageTitle)
