@@ -16,4 +16,15 @@ report with all tests passed : file:///C:/Users/aanch/code/proto-commerce/proto-
    ![Screenshot 2025-02-20 162803](https://github.com/user-attachments/assets/489b8e26-b6a6-4835-8b7b-dc382dacce86)
 
    ![Screenshot 2025-02-20 162453](https://github.com/user-attachments/assets/c35e8976-8cd1-49c0-ae70-450cd029e7dc)
+
+7. To run the test in cypress cloud, login to cypress dashboard and create a new project
+8. Add the project id in cypress.config.js
+9.  run the following command in the terminal yarn cypress run --record --key <record key>
+10. The following cloud report is generated: https://cloud.cypress.io/projects/p29b28/runs/1/overview?roarHideRunsWithDiffGroupsAndTags=1
+    
    
+![Screenshot 2025-02-20 165743](https://github.com/user-attachments/assets/11a99d6c-b9c0-4317-ba74-fc1f8d993de4)
+
+![Screenshot 2025-02-20 165114](https://github.com/user-attachments/assets/1a5a0381-d15b-4c58-a5a5-831445364de8)
+![Screenshot 2025-02-20 165200](https://github.com/user-attachments/assets/338bf5c8-1ee8-4b21-93a3-66551c61cfc1)
+
