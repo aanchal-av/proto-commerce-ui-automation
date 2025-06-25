@@ -1,4 +1,4 @@
-name: CI Pipeline
+name: Proto-commerce Pipeline
 
 on: 
   workflow_dispatch:
