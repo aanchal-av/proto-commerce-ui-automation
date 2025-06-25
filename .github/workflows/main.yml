@@ -25,8 +25,7 @@ jobs:
       - name: Upload HTML report
         uses: actions/upload-artifact@v4
         with:
-            name: cypress-report
-            path: cypress/reports/html/index.html
+            path: index.html
       
       - name: Send Slack Notification
         if: always()
