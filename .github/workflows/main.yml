@@ -26,14 +26,18 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
             path: cypress/reports/html/index.html
+
+      - name: Deploy report to GitHub Pages
+        if: always()
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: cypress/reports/html
       
       - name: Send Slack Notification
         if: always()
         uses: slackapi/slack-github-action@v1.25.0
         with:
-          payload: |
-            {
-              "text": "📥 *<https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}|Click here to download the Cypress HTML Report>*"
-            }    
+          payload-file-path: slack-message.txt  
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
