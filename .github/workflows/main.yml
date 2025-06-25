@@ -27,12 +27,6 @@ jobs:
         with:
             name: cypress-report
             path: cypress/reports/
-
-      - name: Generate Slack message
-        run: node parse-report.js
-        env:
-          GITHUB_REPOSITORY: ${{ github.repository }}
-          GITHUB_RUN_ID: ${{ github.run_id }}
       
       - name: Send Slack Notification
         if: always()
