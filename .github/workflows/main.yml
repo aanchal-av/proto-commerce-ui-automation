@@ -35,6 +35,7 @@ jobs:
           publish_dir: cypress/reports/html
       
       - name: Send Slack Notification
+        run: node parse-report.js
         if: always()
         uses: slackapi/slack-github-action@v1.25.0
         with:
