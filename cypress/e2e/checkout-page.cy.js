@@ -38,4 +38,15 @@ it('place an order',function(){
       cy.get('.alert').should('contain',' Thank you! Your order will be delivered in next few weeks :-)')
 
 })
+
+it('test', function() {
+  const productName='iphone X'
+  loginpage.login(this.data.username,this.data.password)
+  checkoutpage.productCard({timeout:5000})
+  checkoutpage.clickAddToCart(productName)
+  cy.get('app-card').eq(2).click()
+  cy.contains('a','Checkout').click()
+  checkoutpage.sumofProducts()  
+})
+
 })
