@@ -28,3 +28,19 @@ jobs:
             name: cypress-report
             path: cypress/reports/
 
+      - name: Generate Slack message
+        run: node parse-report.js
+        env:
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GITHUB_RUN_ID: ${{ github.run_id }}
+      
+      - name: Send Slack Notification
+        if: always()
+        uses: slackapi/slack-github-action@v1.25.0
+        with:
+          payload: |
+            {
+              "text": "📥 *<https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}|Click here to download the Cypress HTML Report>*"
+            }    
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
