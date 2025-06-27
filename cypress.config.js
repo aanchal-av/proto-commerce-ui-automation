@@ -12,7 +12,7 @@ module.exports = defineConfig({
   reporter: 'cypress-mochawesome-reporter',
   reporterOptions: {
     charts: true,
-    reportPageTitle: 'custom-title',
+    reportPageTitle: 'result',
     embeddedScreenshots: true,
     inlineAssets: true,
     saveAllAttempts: false,
@@ -22,10 +22,16 @@ module.exports = defineConfig({
     setupNodeEvents(on, config) {
       require('cypress-mochawesome-reporter/plugin')(on);
       require('cypress-grep/src/plugin')(config)
+      on('after:run',(result=>{
+        console.log(result);
+        
+      }))
       return config
+      
     },
     supportFile: 'cypress/support/e2e.js',
     specPattern: 'cypress/e2e/*.js',
   },
+
   projectId: 'p29b28'
 });
