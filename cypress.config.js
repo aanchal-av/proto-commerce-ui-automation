@@ -1,4 +1,6 @@
 const { defineConfig } = require("cypress");
+const { beforeRunHook, afterRunHook } = require('cypress-mochawesome-reporter/lib');
+const fs= require('fs')
 
 module.exports = defineConfig({
   env:{
@@ -11,21 +13,30 @@ module.exports = defineConfig({
   defaultCommandTimeout: 4000,
   reporter: 'cypress-mochawesome-reporter',
   reporterOptions: {
+    reportDir: 'cypress/reports',
     charts: true,
-    reportPageTitle: 'result',
+    reportPageTitle: 'Test Report',
     embeddedScreenshots: true,
     inlineAssets: true,
-    saveAllAttempts: false,
+    html: true,
+    json:true,
+    saveAllAttempts: false
   },
   
   e2e: {
     setupNodeEvents(on, config) {
-      require('cypress-mochawesome-reporter/plugin')(on);
+      // require('cypress-mochawesome-reporter/plugin')(on);
       require('cypress-grep/src/plugin')(config)
-      on('after:run',(result=>{
+      on('before:run', async (details) => {
+        console.log('override before:run');
+        await beforeRunHook(details);
+      });
+      on('after:run', async (result) => {
         console.log(result);
-        
-      }))
+        fs.writeFileSync('cypress/reports/index.json',JSON.stringify(result))
+        console.log('override after:run');
+        await afterRunHook();
+      });
       return config
       
     },
