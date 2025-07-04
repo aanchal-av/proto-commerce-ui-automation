@@ -34,3 +34,10 @@ report with all tests passed : file:///C:/Users/aanch/code/proto-commerce/proto-
     and the report is generated as follows:
 
 ![Screenshot 2025-02-20 172626](https://github.com/user-attachments/assets/91df9704-08aa-4bcc-b895-f9b74fb0419e)
+
+12. Integrated slack with githubActions
+     1. Create a new App in slack using https://api.slack.com/apps
+     2. Select "From Scratch"
+![image](https://github.com/user-attachments/assets/6cecc63c-4d9d-44f9-8e9f-b00763497118)
+
+
