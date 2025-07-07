@@ -3,6 +3,8 @@ const { beforeRunHook, afterRunHook } = require('cypress-mochawesome-reporter/li
 const fs= require('fs')
 
 module.exports = defineConfig({
+  viewportHeight:1080,
+  viewportWidth:1920,
   env:{
        url: 'https://rahulshettyacademy.com/loginpagePractise/',
        grepFilterSpecs: true, // Run only tests matching grep
