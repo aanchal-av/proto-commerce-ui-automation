@@ -29,7 +29,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-            path: cypress/reports/html/index.html
+            path: cypress/reports/index.html
 
       - name: Deploy report to GitHub Pages
         if: always()
