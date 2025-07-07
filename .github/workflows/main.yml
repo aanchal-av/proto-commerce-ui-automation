@@ -26,6 +26,7 @@ jobs:
         run: yarn test
     
       - name: Upload HTML report
+        if: always()
         uses: actions/upload-artifact@v4
         with:
             path: cypress/reports/html/index.html
@@ -38,6 +39,7 @@ jobs:
           publish_dir: cypress/reports/html
 
       - name: Generate Slack message file
+        if: always()
         run: node parse-report.js
 
       - name: Send Slack Notification
