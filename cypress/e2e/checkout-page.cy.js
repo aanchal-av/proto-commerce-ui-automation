@@ -3,7 +3,7 @@
 import LoginPage from "../support/pageObjects/LoginPage"
 import CheckoutPage from "../support/pageObjects/CheckoutPage"
 
-describe('placing order', () => {
+describe('Placing order', () => {
   const loginpage=new LoginPage()
   const checkoutpage= new CheckoutPage()
 
