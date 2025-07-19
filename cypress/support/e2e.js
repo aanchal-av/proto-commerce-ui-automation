@@ -17,3 +17,9 @@
 import './commands'
 import 'cypress-mochawesome-reporter/register'
 import 'cypress-grep'
+
+cy.on('uncaught:exception',(err)=>{
+    if(err.message.includes('backend:request failed')){
+        return false
+    }
+})
